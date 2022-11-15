@@ -11,12 +11,15 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      defer
+    ></script>
     <script src="/js/script.js" defer></script>
     <title>qrCoder</title>
   </head>
   <body>
-    <header class="bg-indigo-700 p-4">
+    <header class="bg-indigo-700 p-4 shadow-md">
       <div class="max-w-5xl m-auto text-xl font-bold text-white flex">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,9 +43,9 @@
         qrCoder
       </div>
     </header>
-    <main></main>
+    <main>
       <div
-        class="h-full p-12 flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl md:flex-row"
+        class="h-full p-4 flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl md:flex-row"
       >
         <div class="w-full md:w-2/5">
           <h1 class="text-2xl font-bold mb-5 md:text-3xl text-indigo-900">
@@ -66,12 +69,12 @@
               id="size"
               class="w-full border border-indigo-900 focus:outline-none p-1 rounded bg-indigo-50 text-indigo-900 mb-4"
             >
-              <option value="100">small</option>
-              <option value="300" selected>medium</option>
-              <option value="600">large</option>
+              <option value="100">Small</option>
+              <option value="300" selected>Medium</option>
+              <option value="500">Large</option>
             </select>
             <button
-              class="bg-indigo-700 hover:bg-indigo-900 rounded text-white p-2 w-full"
+              class="bg-indigo-700 hover:bg-indigo-600 rounded text-white p-2 w-full font-bold"
             >
               Generate
             </button>
@@ -86,9 +89,15 @@
         </div>
       </div>
       <div
+        id="generation"
         class="m-auto max-w-4xl text-center align-center justify-center"
       >
-        <div id="spinner" class="mx-auto mt-12" style="display: none" role="status">
+        <div
+          id="spinner"
+          class="mx-auto mt-12"
+          style="display: none"
+          role="status"
+        >
           <svg
             class="inline mr-2 w-24 h-24 text-gray-200 animate-spin dark:text-gray-600 fill-pink-600"
             viewBox="0 0 100 101"
@@ -104,7 +113,7 @@
               fill="#4338ca"
             />
           </svg>
-          <span class="sr-only">Loading...</span>
+          <!-- <span class="sr-only">Loading...</span> -->
         </div>
         <div id="qrcode" class="m-auto justify-center flex"></div>
       </div>
