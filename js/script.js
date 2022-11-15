@@ -44,7 +44,6 @@ const handleSubmit = (e) => {
       setTimeout(() => {
         const saveUrl = qr.querySelector("img").src;
         createSaveButton(saveUrl);
-        console.log("gen", saveUrl);
       }, 50);
     }, 1000);
   }
@@ -54,7 +53,7 @@ const createSaveButton = (saveUrl) => {
   const link = document.createElement("a");
   link.id = "save";
   link.classList =
-    "bg-indigo-700 hover:bg-indigo-600 text-white font-bold p-2 rounded mt-2 m-auto block w-1/4";
+    "bg-indigo-700 hover:bg-indigo-600 text-white font-bold p-2 rounded mt-4 m-auto block w-full md:w-1/4 ";
   link.href = saveUrl;
   link.download = "qrcode";
   link.innerHTML = "Save as image";
