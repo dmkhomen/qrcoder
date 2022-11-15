@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.1/qrcode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
     <script src="/js/script.js" defer></script>
     <title>qrCoder</title>
   </head>
@@ -35,53 +40,55 @@
         qrCoder
       </div>
     </header>
-    <main
-      class="h-full p-12 flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl md:flex-row"
-    >
-      <div class="w-full md:w-2/5">
-        <h1 class="text-2xl font-bold mb-5 md:text-3xl text-indigo-900">
-          QR codes made simple
-        </h1>
-        <p class="mb-4">
-          QR codes allow people to access your website or social media quickly
-          and easily.
-        </p>
-        <p class="mb-4">
-          Paste a link below to generate and download QR code made for you:
-        </p>
-        <form id="generator">
-          <input
-            id="url"
-            type="url"
-            placeholder="https://yoursite.com"
-            class="w-full border border-indigo-900 focus:outline-none p-1 rounded bg-indigo-50 text-indigo-900 mb-4"
+    <main></main>
+      <div
+        class="h-full p-12 flex flex-col-reverse align-center justify-center m-auto md:max-w-4xl md:flex-row"
+      >
+        <div class="w-full md:w-2/5">
+          <h1 class="text-2xl font-bold mb-5 md:text-3xl text-indigo-900">
+            QR codes made simple
+          </h1>
+          <p class="mb-4">
+            QR codes allow people to access your website or social media quickly
+            and easily.
+          </p>
+          <p class="mb-4">
+            Paste a link below to generate and download QR code made for you:
+          </p>
+          <form id="generator">
+            <input
+              id="url"
+              type="url"
+              placeholder="https://yoursite.com"
+              class="w-full border border-indigo-900 focus:outline-none p-1 rounded bg-indigo-50 text-indigo-900 mb-4"
+            />
+            <select
+              id="size"
+              class="w-full border border-indigo-900 focus:outline-none p-1 rounded bg-indigo-50 text-indigo-900 mb-4"
+            >
+              <option value="100">small</option>
+              <option value="300" selected>medium</option>
+              <option value="600">large</option>
+            </select>
+            <button
+              class="bg-indigo-700 hover:bg-indigo-900 rounded text-white p-2 w-full"
+            >
+              Generate
+            </button>
+          </form>
+        </div>
+        <div class="w-full md:w-3/5">
+          <img
+            src="/img/qr.svg"
+            alt=""
+            class="w-1/2 m-auto md:w-full mb-10 self-center"
           />
-          <select
-            id="size"
-            class="w-full border border-indigo-900 focus:outline-none p-1 rounded bg-indigo-50 text-indigo-900 mb-4"
-          >
-            <option value="100">small</option>
-            <option value="300" selected>medium</option>
-            <option value="600">large</option>
-          </select>
-          <button
-            class="bg-indigo-700 hover:bg-indigo-900 rounded text-white p-2 w-full"
-          >
-            Generate
-          </button>
-        </form>
-      </div>
-      <div class="w-full md:w-3/5">
-        <img
-          src="/img/qr.svg"
-          alt=""
-          class="w-1/2 m-auto md:w-full mb-10 self-center"
-        />
+        </div>
       </div>
       <div
-        class="flex flex-column m-auto max-w-5xl text-center align-center justify-center mt-20"
+        class="m-auto max-w-4xl text-center align-center justify-center"
       >
-        <div id="spinner" role="status">
+        <div id="spinner" class="mx-auto mt-12" style="display: none" role="status">
           <svg
             class="inline mr-2 w-24 h-24 text-gray-200 animate-spin dark:text-gray-600 fill-pink-600"
             viewBox="0 0 100 101"
@@ -99,7 +106,7 @@
           </svg>
           <span class="sr-only">Loading...</span>
         </div>
-        <div id="qrcode" class="m-auto"></div>
+        <div id="qrcode" class="m-auto justify-center flex"></div>
       </div>
     </main>
   </body>
